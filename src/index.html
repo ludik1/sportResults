@@ -1,14 +1,69 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>SportResults</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+  <script type="text/javascript" src="app/services/loadData.js"></script>
 </head>
-<body>
+
+<body class="content">
   <app-root>Loading...</app-root>
+  <div class="mainContainer" data-ng-app="loadData">
+    <div data-ng-controller="loadDataCtrl">
+      <div class="buttons">
+        <button class="showHideEffect btn btn-success" ng-hide="showedLeagues.length == Leagues.length" ng-click="showMatch()">Zobraz zápas</button>
+        <button class="showHideEffect btn btn-danger" ng-show="showedLeagues.length > 1" ng-click="hideMatch()">Skry zápas</button>
+      </div>
+      <div ng-repeat="League in showedLeagues" class="table showHideEffect">
+        <div class="head tr" ng-class="{'tennis': League.SportID == 58, 'football': League.SportID == 54}" ng-click="showDiv = !showDiv">
+          <div class="td">
+            <span class="sportTitle">{{getSportTitle(League.SportID) | uppercase}}</span>
+            <img class="sportImage" ng-src="{{ League.SportID == 54 && '/images/icon-football-soccer.png' || '/images/icon-tennis.png'}}">
+            <span class="glyphicon" ng-class="{'glyphicon glyphicon-chevron-up': !showDiv, 'glyphicon glyphicon-chevron-down': showDiv}"></span>
+          </div>
+        </div>
+        <div class="body" ng-hide="showDiv">
+          <div class="tr">
+            <div class="tdValue no-border headLong leagueRegionInfo">
+              <span ng-class="{'tennis': League.SportID == 58, 'football': League.SportID == 54}">
+                  {{getLeagueTitle(League.LeagueCupID) | uppercase}} - {{getRegionTitle(League.RegionID) | uppercase}}
+                <span>
+            </div>
+            <div class="tdValue no-border short">1</div>
+            <div class="tdValue no-border short">X</div>
+            <div class="tdValue no-border short">2</div>
+            <div class="tdValue no-border short">1X</div>
+            <div class="tdValue no-border tdLast short">X2</div>
+          </div>
+          <div class="tr" ng-repeat="EventChanceType in EventChanceTypes" ng-if="EventChanceType.LeagueCupID==League.LeagueCupID">
+            <div class="tdValue classic">
+              <span class="eventDate">{{EventChanceType.EventDate | date:'dd.MM.'}}</span>
+              <span class="eventDate">{{EventChanceType.EventDate | date:'HH:mm'}}</span>
+            </div>
+            <div class="tdValue long">{{EventChanceType.EventName}}</div>
+            <div class="tdValue short">{{getOddsRate(EventChanceType.EventChanceTypeID + "_1")}}</div>
+            <div class="tdValue short">{{getOddsRate(EventChanceType.EventChanceTypeID + "_X")}}</div>
+            <div class="tdValue short">{{getOddsRate(EventChanceType.EventChanceTypeID + "_2")}}</div>
+            <div class="tdValue short">{{getOddsRate(EventChanceType.EventChanceTypeID + "_1X")}}</div>
+            <div class="tdValue tdLast short">{{getOddsRate(EventChanceType.EventChanceTypeID + "_X2")}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+@keyframes animation {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+.showHideEffect.ng-enter, .showHideEffect.ng-move {
+  transition: all 1s linear;
+  opacity: 0; }
+.showHideEffect.ng-enter.ng-enter-active, .showHideEffect.ng-move.ng-move-active {
+  opacity: 1; }
+.showHideEffect.ng-leave {
+  animation: 1s animation; }
+
+.showHideEffect, .body {
+  transition: all linear 0.3s; }
+
+.showHideEffect.ng-hide, .body.ng-hide {
+  opacity: 0; }
+
+.content {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.table {
+  width: 800px;
+  margin-bottom: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+  .table .tr {
+    border-bottom: 1px solid #e8e8e8; }
+  .table .body {
+    border-top: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8; }
+
+.head.tr {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-weight: bold; }
+.head .td {
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  border: none;
+  font-size: 2rem; }
+.head .sportTitle {
+  padding-left: 20px;
+  vertical-align: middle; }
+.head .glyphicon {
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  float: right; }
+.head .sportImage {
+  height: 20px;
+  padding-left: 10px; }
+
+.tdValue {
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  display: inline-block;
+  border-right: 1px solid #e8e8e8;
+  padding: 0 5px 0 5px; }
+  .tdValue.short {
+    width: 50px;
+    text-align: center; }
+  .tdValue.classic {
+    width: 70px;
+    text-align: center; }
+  .tdValue.headLong {
+    width: 528px; }
+  .tdValue.long {
+    width: 454px; }
+  .tdValue.no-border {
+    border: none; }
+  .tdValue.leagueRegionInfo {
+    padding-left: 15px;
+    color: #fff;
+    border-radius: 3px; }
+    .tdValue.leagueRegionInfo .tennis {
+      padding: 2px 5px 2px 5px;
+      border-radius: 5px;
+      background: #c0ca33;
+      font-size: 1.1rem;
+      font-weight: bold; }
+    .tdValue.leagueRegionInfo .football {
+      padding: 2px 5px 2px 5px;
+      border-radius: 5px;
+      background: #33b900;
+      font-size: 1.1rem;
+      font-weight: bold; }
+
+.tdLast {
+  border-right: none; }
+
+.football {
+  background: linear-gradient(to right, #33b900 0, #009300 100%); }
+
+.tennis {
+  background: linear-gradient(to right, #dce775 0, #c0ca33 100%); }
+
+.glyphicon {
+  padding: 0 10px 0 10px; }
+
+.eventDate {
+  height: 20px;
+  line-height: 20px;
+  display: block; }
+
+.buttons {
+  margin-bottom: 20px; }
+
+/*# sourceMappingURL=styles.css.map */

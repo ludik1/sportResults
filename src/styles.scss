@@ -1,0 +1,151 @@
+$border: 1px solid #e8e8e8;
+
+@keyframes animation {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@mixin sport-leagueRegionInfo($background){
+    padding: 2px 5px 2px 5px;
+    border-radius: 5px;
+    background: $background;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+@mixin table-border{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+@mixin line-initialization{
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+//Animations
+.showHideEffect{
+    &.ng-enter, &.ng-move{
+        transition: all 1s linear;
+        opacity: 0;
+    }
+    &.ng-enter.ng-enter-active, &.ng-move.ng-move-active {
+        opacity: 1;
+    }
+    &.ng-leave {
+        animation: 1s animation;
+    }
+}
+
+.showHideEffect, .body {
+  transition: all linear 0.3s;
+}
+.showHideEffect.ng-hide, .body.ng-hide {
+  opacity: 0;
+}
+
+//Styles
+.content{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table{
+    width: 800px;
+    margin-bottom: 20px;
+    @include table-border();
+    .tr{
+        border-bottom: $border;
+    }
+    .body{
+        border-top: $border;
+        border-right: $border;
+        border-left: $border;
+    }
+}
+.head{
+    &.tr{
+        @include table-border();  
+        font-weight: bold;      
+    }
+    .td{
+        @include line-initialization();
+        border: none;
+        font-size: 2rem;
+    }
+    .sportTitle,{
+        padding-left: 20px;
+        vertical-align: middle;
+    }
+    .glyphicon{
+        @include line-initialization();
+        float: right;
+    }
+    .sportImage{
+        height: 20px;
+        padding-left: 10px; 
+    }
+}
+
+.tdValue{
+    @include line-initialization();
+    display: inline-block;
+    border-right: $border;
+    padding: 0 5px 0 5px;
+    &.short{
+        width: 50px;
+        text-align: center;
+    }
+    &.classic{
+        width: 70px;
+        text-align: center;
+    }
+    &.headLong{
+        width: 528px;
+    }
+    &.long{
+        width: 454px;
+    }
+    &.no-border{
+        border: none;
+    }
+    &.leagueRegionInfo{
+        padding-left: 15px;
+        color: #fff;
+        border-radius: 3px;
+
+        .tennis{
+            @include sport-leagueRegionInfo(#c0ca33);
+        }
+        .football{
+            @include sport-leagueRegionInfo(#33b900);
+        }
+    }    
+}
+
+.tdLast{
+    border-right: none;
+}
+
+.football{
+    background: linear-gradient(to right,#33b900 0,#009300 100%);
+}
+
+.tennis{
+    background: linear-gradient(to right,#dce775 0,#c0ca33 100%);
+}
+
+.glyphicon{
+    padding: 0 10px 0 10px;
+}
+
+.eventDate{
+    height: 20px;
+    line-height: 20px;
+    display: block;
+}
+
+.buttons{
+    margin-bottom: 20px;
+}
