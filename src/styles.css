@@ -28,11 +28,11 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
   .table .tr {
-    border-bottom: 1px solid #e8e8e8; }
+    border-bottom: 1px solid #CACACA; }
   .table .body {
-    border-top: 1px solid #e8e8e8;
-    border-right: 1px solid #e8e8e8;
-    border-left: 1px solid #e8e8e8; }
+    border-top: 1px solid #CACACA;
+    border-right: 1px solid #CACACA;
+    border-left: 1px solid #CACACA; }
 
 .head.tr {
   border-top-left-radius: 5px;
@@ -61,7 +61,7 @@
   line-height: 40px;
   vertical-align: middle;
   display: inline-block;
-  border-right: 1px solid #e8e8e8;
+  border-right: 1px solid #CACACA;
   padding: 0 5px 0 5px; }
   .tdValue.short {
     width: 50px;
@@ -100,6 +100,9 @@
 
 .tennis {
   background: linear-gradient(to right, #dce775 0, #c0ca33 100%); }
+
+.bet {
+  color: #f40034; }
 
 .glyphicon {
   padding: 0 10px 0 10px; }

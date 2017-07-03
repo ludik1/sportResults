@@ -1,4 +1,4 @@
-$border: 1px solid #e8e8e8;
+$border: 1px solid #CACACA;
 
 @keyframes animation {
     from { opacity: 1; }
@@ -136,6 +136,9 @@ $border: 1px solid #e8e8e8;
     background: linear-gradient(to right,#dce775 0,#c0ca33 100%);
 }
 
+.bet{
+    color: #f40034;
+}
 .glyphicon{
     padding: 0 10px 0 10px;
 }

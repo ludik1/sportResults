@@ -24,8 +24,8 @@
   <div class="mainContainer" data-ng-app="loadData">
     <div data-ng-controller="loadDataCtrl">
       <div class="buttons">
-        <button class="showHideEffect btn btn-success" ng-hide="showedLeagues.length == Leagues.length" ng-click="showMatch()">Zobraz zápas</button>
-        <button class="showHideEffect btn btn-danger" ng-show="showedLeagues.length > 1" ng-click="hideMatch()">Skry zápas</button>
+        <button class="showHideEffect btn btn-success" ng-hide="showedLeagues.length == Leagues.length" ng-click="showMatch()">Zobraziť zápas</button>
+        <button class="showHideEffect btn btn-danger" ng-show="showedLeagues.length > 1" ng-click="hideMatch()">Skryť zápas</button>
       </div>
       <div ng-repeat="League in showedLeagues" class="table showHideEffect">
         <div class="head tr" ng-class="{'tennis': League.SportID == 58, 'football': League.SportID == 54}" ng-click="showDiv = !showDiv">
@@ -42,11 +42,11 @@
                   {{getLeagueTitle(League.LeagueCupID) | uppercase}} - {{getRegionTitle(League.RegionID) | uppercase}}
                 <span>
             </div>
-            <div class="tdValue no-border short">1</div>
-            <div class="tdValue no-border short">X</div>
-            <div class="tdValue no-border short">2</div>
-            <div class="tdValue no-border short">1X</div>
-            <div class="tdValue no-border tdLast short">X2</div>
+            <div class="tdValue no-border short bet">1</div>
+            <div class="tdValue no-border short bet">X</div>
+            <div class="tdValue no-border short bet">2</div>
+            <div class="tdValue no-border short bet">1X</div>
+            <div class="tdValue no-border tdLast short bet">X2</div>
           </div>
           <div class="tr" ng-repeat="EventChanceType in EventChanceTypes" ng-if="EventChanceType.LeagueCupID==League.LeagueCupID">
             <div class="tdValue classic">

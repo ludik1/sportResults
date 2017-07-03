@@ -16,7 +16,7 @@ myApp.service("loadDataService", function($http, $q)
     var promise = loadDataService.getData();
     $scope.showedLeagues = [];
     var i = 0;
-    
+
     $interval(function(){
         $scope.showMatch();
     },10000);
@@ -43,15 +43,18 @@ myApp.service("loadDataService", function($http, $q)
         $scope.Labels = $scope.jsonData.data.Labels;   
         
         $scope.Leagues = [];
+        $scope.tmpLeagues = [];
         $scope.EventChanceTypes.forEach(function(element) {
-            if($scope.Leagues.indexOf(element.LeagueCupID) === -1){
+            if($scope.tmpLeagues.indexOf(element.LeagueCupID) === -1){
                 $scope.Leagues.push({ 
                     "LeagueCupID" : element.LeagueCupID,
                     "SportID"     : element.SportID,
                     "RegionID"    : element.RegionID
                 });
+                $scope.tmpLeagues.push(element.LeagueCupID);
             }
         }, this);
+        console.log()
         $scope.showMatch();
     });
 
